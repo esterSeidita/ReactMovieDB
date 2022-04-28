@@ -3,9 +3,10 @@ import styles from "./style.module.scss";
 import { GetData } from "./../../utils";
 import { useEffect, useState } from "react";
 
-export default function CardList({ filter, setUpdateCardId }) {
+export default function CardList({ setModalInfo, filter, setUpdateCardId }) {
   const [movies, setMovies] = useState([]);
   const [moviesFiltered, setMoviesFiltered] = useState([]);
+  const [modal, setModal] = useState({})
 
   useEffect(() => {
     GetData().then((result) => {
@@ -13,6 +14,10 @@ export default function CardList({ filter, setUpdateCardId }) {
       setMoviesFiltered(result);
     });
   }, []);
+
+  useEffect(() => {
+    setModalInfo(modal)
+  }, [modal]);
 
   useEffect(() => {
     const filtered = movies
@@ -37,6 +42,7 @@ export default function CardList({ filter, setUpdateCardId }) {
           key={index}
           cardID={movie.id}
           movie={movie}
+          setModal={setModal}
         />
       ))}
     </div>

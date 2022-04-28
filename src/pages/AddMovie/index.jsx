@@ -26,7 +26,7 @@ export default function AddMovie() {
 
   return (
     <>
-    <Modal showModal={showModal}/>
+    <Modal showModal={showModal} title="Yeeee!" description="Film aggiunto con successo :D" needConfirm={false}/>
     <form onSubmit={handleSubmit}>
       <label>Titolo</label>
       <input

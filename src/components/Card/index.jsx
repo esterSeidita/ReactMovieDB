@@ -1,13 +1,25 @@
 import styles from "./style.module.scss";
 import { DeleteData } from "../../utils";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 
-export default function Card({ movie, cardID, setUpdateCardId}) {
-
+export default function Card({ setModal, movie, cardID, setUpdateCardId }) {
   const updateCard = () => {
     setUpdateCardId(cardID);
-  }
-  
+  };
+
+  const deleteAction = () => {
+
+    setModal({
+      show: "visible",
+      title: "Sicuro di volere eliminare?",
+      description: "",
+      needConfirm: true,
+      cardId: cardID
+    });
+
+    console.log("click");
+  };
 
   return (
     <div className={styles.Card}>
@@ -20,11 +32,15 @@ export default function Card({ movie, cardID, setUpdateCardId}) {
         <p>{movie.year && movie.year}</p>
         <p>{movie.description && movie.description}</p>
         <ul>
-          {movie && Array.isArray(movie.genres) ? movie.genres.map((genre, index) => <li key={index}>{genre}</li>):<li>{movie.genres}</li>}
+          {movie && Array.isArray(movie.genres) ? (
+            movie.genres.map((genre, index) => <li key={index}>{genre}</li>)
+          ) : (
+            <li>{movie.genres}</li>
+          )}
         </ul>
-        <button onClick={()=>DeleteData(cardID)}>Delete</button>
+        <button onClick={deleteAction}>Delete</button>
         <Link to={"UpdateMovie"}>
-          <button onClick={()=>updateCard()}>Update</button>
+          <button onClick={() => updateCard()}>Update</button>
         </Link>
       </div>
     </div>

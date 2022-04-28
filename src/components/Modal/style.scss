@@ -20,6 +20,21 @@
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
+  button{
+    padding: 1em;
+    margin: 0 1em;
+    width: 150px;
+    color: aliceblue;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    &.confirm{
+      background-color: green;
+    }
+    &.abort{
+      background-color: red;
+    }
+  }
 }
 
 #not-visible {
