@@ -1,4 +1,4 @@
-import "./style.css";
+import styles from "./style.module.scss";
 import { NewData } from "../../utils";
 import { useState } from "react";
 import Modal from "../../components/Modal";

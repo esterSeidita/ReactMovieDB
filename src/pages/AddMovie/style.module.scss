@@ -1,0 +1,22 @@
+form {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 1em;
+    text-align: center;
+    padding: 1em;
+    max-width: 400px;
+    margin: 0 auto;
+
+    label {
+        display: block;
+    }
+
+    input[type="submit"] {
+        padding: 0.8em;
+        background: var(--tagColor);
+        color: var(--textColor);
+        font-weight: bold;
+        border:none;
+        border-radius: 5px;
+    }   
+}

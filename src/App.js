@@ -20,6 +20,8 @@ function App() {
           <Header/>
           <Routes>
             <Route index element={<Home setUpdateCardId={setUpdateCardId}/>}></Route>
+            <Route path="react-movies-db" element={<Home setUpdateCardId={setUpdateCardId}/>}></Route>
+            <Route path="ReactMovieDB" element={<Home setUpdateCardId={setUpdateCardId}/>}></Route>
             <Route path="AddMovie" element={<AddMovie/>}></Route>
             <Route path="UpdateMovie" element={<UpdateMovie/>}></Route>
           </Routes>

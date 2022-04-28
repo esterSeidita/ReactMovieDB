@@ -1,0 +1,15 @@
+.SearchInput{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .searchInput{
+        margin: 1em;
+        width: 500px;
+        padding: 0.5em;
+    }
+    label{
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+}

@@ -1,4 +1,4 @@
-import "./style.css";
+import styles from "./style.module.scss";
 import { UpdateData } from "../../utils";
 import { useEffect, useState } from "react";
 
@@ -8,9 +8,7 @@ export default function UpdateMovie({updateCardId, setCurrentPage}) {
   const handleChange = (event) => {
     const name = event.target.name;
     let value = event.target.value;
-
     if(name==="genres")value=value.split(",");
-    
     setInputs(values => ({...values, [name]: value}))
 
   }
