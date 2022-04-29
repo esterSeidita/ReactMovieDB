@@ -3,7 +3,7 @@ import styles from "./style.module.scss";
 import { GetData } from "./../../utils";
 import { useEffect, useState } from "react";
 
-export default function CardList({ setModalInfo, filter, setUpdateCardId }) {
+export default function CardList({ setModalInfo, categoriesFilter, filter, setUpdateCardId }) {
   const [movies, setMovies] = useState([]);
   const [moviesFiltered, setMoviesFiltered] = useState([]);
   const [modal, setModal] = useState({})
@@ -33,6 +33,21 @@ export default function CardList({ setModalInfo, filter, setUpdateCardId }) {
     setMoviesFiltered(filtered);
 
   }, [filter]);
+
+  useEffect(() => {
+    const filtered = movies
+      .filter(
+        (movie) =>
+          movie.genres &&
+          // movie.genres.join("").toLowerCase().includes(categoriesFilter.join().toLowerCase())
+            // [...movie.genres].includes([...categoriesFilter])
+            movie.genres.join("").toLowerCase().includes([...categoriesFilter])
+
+          )
+
+    setMoviesFiltered(filtered);
+
+  }, [categoriesFilter]);
 
   return (
     <div className={styles.CardList}>

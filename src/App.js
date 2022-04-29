@@ -8,6 +8,7 @@ import AddMovie from './pages/AddMovie';
 import UpdateMovie from './pages/UpdateMovie';
 import Home from './pages/Home';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import Categories from './pages/Categories';
 
 function App() {
 
@@ -20,10 +21,10 @@ function App() {
           <Header/>
           <Routes>
             <Route index element={<Home setUpdateCardId={setUpdateCardId}/>}></Route>
-            <Route path="react-movies-db" element={<Home setUpdateCardId={setUpdateCardId}/>}></Route>
             <Route path="ReactMovieDB" element={<Home setUpdateCardId={setUpdateCardId}/>}></Route>
             <Route path="AddMovie" element={<AddMovie/>}></Route>
             <Route path="UpdateMovie" element={<UpdateMovie/>}></Route>
+            <Route path="Categories" element={<Categories/>}></Route>
           </Routes>
           <Footer />
       </Router>
