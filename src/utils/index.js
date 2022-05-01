@@ -1,5 +1,5 @@
-export async function GetData () {
-    const response = await fetch("https://edgemony-backend.herokuapp.com/movies");
+export async function GetData (id="") {
+    const response = await fetch(`https://edgemony-backend.herokuapp.com/movies/${id}`);
     const data = await response.json();
     return data;
 }

@@ -10,7 +10,7 @@ export default function AddMovie() {
   const handleChange = (event) => {
     const name = event.target.name;
     let value = event.target.value;
-    if(name==="genres") value = value.split(",");
+    if (name === "genres") value = value.split(",").map((el)=>el.trim());
     setInputs((values) => ({ ...values, [name]: value }));
   };
 

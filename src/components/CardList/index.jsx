@@ -51,6 +51,7 @@ export default function CardList({
           cardID={movie.id}
           movie={movie}
           setModal={setModal}
+          needActions={true}
         /> 
         : 
         movie.genres.some((genre) => categoriesFilter.includes(genre)) &&

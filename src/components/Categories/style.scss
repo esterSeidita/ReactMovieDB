@@ -1,0 +1,21 @@
+.Categories{
+    margin: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+
+    >div{
+        background-color: grey;
+        padding: 0.6em;
+        border-radius: 0.5em;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .selected{
+        background-color: var(--tagColor);
+        color: aliceblue;
+    }
+}
+

@@ -4,6 +4,7 @@ import SearchInput from "../../components/SearchInput";
 import Checkboxes from "../../components/Checkboxes";
 import Modal from "./../../components/Modal";
 import { DeleteData } from "../../utils";
+import Categories from "../../components/Categories";
 
 export default function Home({ setUpdateCardId }) {
   const [filter, setFilter] = useState("");
@@ -30,9 +31,12 @@ export default function Home({ setUpdateCardId }) {
         needConfirm={modalInfo.needConfirm || false}
         setDeleteConfirmed={setDeleteConfirmed}
       />
-      <Checkboxes
+      {/* <Checkboxes
         setCategoriesFilter={setCategoriesFilter}
         setRender={setRender}
+      /> */}
+      <Categories
+        setCategoriesFilter={setCategoriesFilter}
       />
       <SearchInput setFilter={setFilter} />
       <CardList

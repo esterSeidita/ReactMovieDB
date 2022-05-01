@@ -18,7 +18,6 @@ export default function Checkboxes({setRender, setCategoriesFilter}) {
       const index = inputs.indexOf(val)
       const newVal= inputs.splice(index, 1);
       setInputs(inputs)
-      console.log("val", inputs);
       setRender(true)
 
     }
@@ -45,7 +44,6 @@ export default function Checkboxes({setRender, setCategoriesFilter}) {
 
   useEffect(() => {
     setCategoriesFilter(inputs)
-    console.log(inputs)
   }, [inputs])
 
   return (

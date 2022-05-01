@@ -10,8 +10,6 @@ import Home from './pages/Home';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 function App() {
-
-  const [currentPage, setCurrentPage] = useState("CardList");
   const [updateCardId, setUpdateCardId] = useState();
 
   return (
@@ -22,7 +20,7 @@ function App() {
             <Route index element={<Home setUpdateCardId={setUpdateCardId}/>}></Route>
             <Route path="ReactMovieDB" element={<Home setUpdateCardId={setUpdateCardId}/>}></Route>
             <Route path="AddMovie" element={<AddMovie/>}></Route>
-            <Route path="UpdateMovie" element={<UpdateMovie/>}></Route>
+            <Route path="UpdateMovie" element={<UpdateMovie updateCardId={updateCardId}/>}></Route>
           </Routes>
           <Footer />
       </Router>

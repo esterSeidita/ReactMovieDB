@@ -3,7 +3,8 @@ import { DeleteData } from "../../utils";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-export default function Card({ setModal, movie, cardID, setUpdateCardId }) {
+export default function Card({ setModal, movie, cardID, setUpdateCardId, needActions}) {
+  
   const updateCard = () => {
     setUpdateCardId(cardID);
   };
@@ -18,7 +19,6 @@ export default function Card({ setModal, movie, cardID, setUpdateCardId }) {
       cardId: cardID
     });
 
-    console.log("click");
   };
 
   return (
@@ -38,10 +38,12 @@ export default function Card({ setModal, movie, cardID, setUpdateCardId }) {
             <li>{movie.genres}</li>
           )}
         </ul>
-        <button onClick={deleteAction}>Delete</button>
-        <Link to={"UpdateMovie"}>
-          <button onClick={() => updateCard()}>Update</button>
-        </Link>
+        {needActions && <>
+          <button onClick={deleteAction}>Delete</button>
+          <Link to={"UpdateMovie"}>
+            <button onClick={() => updateCard()}>Update</button>
+          </Link>
+        </>}
       </div>
     </div>
   );
