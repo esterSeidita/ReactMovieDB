@@ -17,9 +17,6 @@ export default function Header() {
           <li>
             <Link to="/AddMovie">Add Movie</Link>
           </li>          
-          <li>
-            <Link to="/Categories">Categories</Link>
-          </li>
         </ul>
       </nav>
     </header>

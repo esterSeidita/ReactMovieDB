@@ -3,10 +3,15 @@ import styles from "./style.module.scss";
 import { GetData } from "./../../utils";
 import { useEffect, useState } from "react";
 
-export default function CardList({ setModalInfo, categoriesFilter, filter, setUpdateCardId }) {
+export default function CardList({
+  setModalInfo,
+  categoriesFilter,
+  filter,
+  setUpdateCardId,
+}) {
   const [movies, setMovies] = useState([]);
   const [moviesFiltered, setMoviesFiltered] = useState([]);
-  const [modal, setModal] = useState({})
+  const [modal, setModal] = useState({});
 
   useEffect(() => {
     GetData().then((result) => {
@@ -16,42 +21,35 @@ export default function CardList({ setModalInfo, categoriesFilter, filter, setUp
   }, []);
 
   useEffect(() => {
-    setModalInfo(modal)
+    setModalInfo(modal);
   }, [modal]);
 
   useEffect(() => {
-    const filtered = movies
-      .filter(
-        (movie) =>
-          movie.title &&
-          movie.title.toLowerCase().includes(filter.toLowerCase())
-          ||
-          movie.genres &&
+    const filtered = movies.filter(
+      (movie) =>
+        (movie.title &&
+          movie.title.toLowerCase().includes(filter.toLowerCase())) ||
+        (movie.genres &&
           Array.isArray(movie.genres) &&
-          movie.genres.join("").toLowerCase().includes(filter.toLowerCase())
-      )
+          movie.genres.join("").toLowerCase().includes(filter.toLowerCase()))
+    );
     setMoviesFiltered(filtered);
-
   }, [filter]);
 
-  useEffect(() => {
-    const filtered = movies
-      .filter(
-        (movie) =>
-          movie.genres &&
-          // movie.genres.join("").toLowerCase().includes(categoriesFilter.join().toLowerCase())
-            // [...movie.genres].includes([...categoriesFilter])
-            movie.genres.join("").toLowerCase().includes([...categoriesFilter])
-
-          )
-
-    setMoviesFiltered(filtered);
-
-  }, [categoriesFilter]);
 
   return (
     <div className={styles.CardList}>
       {moviesFiltered.map((movie, index) => (
+        categoriesFilter.length===0 ?
+        <Card
+          setUpdateCardId={setUpdateCardId}
+          key={index}
+          cardID={movie.id}
+          movie={movie}
+          setModal={setModal}
+        /> 
+        : 
+        movie.genres.some((genre) => categoriesFilter.includes(genre)) &&
         <Card
           setUpdateCardId={setUpdateCardId}
           key={index}
@@ -59,7 +57,9 @@ export default function CardList({ setModalInfo, categoriesFilter, filter, setUp
           movie={movie}
           setModal={setModal}
         />
+        
       ))}
+
     </div>
   );
 }

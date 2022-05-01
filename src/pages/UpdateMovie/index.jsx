@@ -15,7 +15,7 @@ export default function UpdateMovie({updateCardId, setCurrentPage}) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    UpdateData(updateCardId, inputs);
+    UpdateData(updateCardId, inputs).then(() => window.location.reload(false));
   }
 
   return (

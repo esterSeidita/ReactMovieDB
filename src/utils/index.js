@@ -5,14 +5,14 @@ export async function GetData () {
 }
 
 export async function DeleteData(id) {
-    const response = await fetch(`https://edgemony-backend.herokuapp.com/movies/${id}`, {
+    return await fetch(`https://edgemony-backend.herokuapp.com/movies/${id}`, {
         method: "DELETE",
         headers: {"Content-Type":"application/json"},
-    }).then(() => window.location.reload(false));
+    })
 }
 
 export async function UpdateData (id, datas) {
-    const response = await fetch(`https://edgemony-backend.herokuapp.com/movies/${id}`, {
+    return await fetch(`https://edgemony-backend.herokuapp.com/movies/${id}`, {
         method: "PUT",
         headers: {"Content-Type":"application/json"},
         body: JSON.stringify({
@@ -22,11 +22,11 @@ export async function UpdateData (id, datas) {
             title: datas.title,
             year: datas.year
         })
-    }).then(() => window.location.reload(false));
+    })
 }
 
 export async function NewData (datas) {
-    const response = await fetch(`https://edgemony-backend.herokuapp.com/movies/`, {
+    return await fetch(`https://edgemony-backend.herokuapp.com/movies/`, {
         method: "POST",
         headers: {"Content-Type":"application/json"},
         body: JSON.stringify({
@@ -36,6 +36,6 @@ export async function NewData (datas) {
             title: datas.title,
             year: datas.year
         })
-    }).then(() => window.location.reload(false));;
+    })
 }
 

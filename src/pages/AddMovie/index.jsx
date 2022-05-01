@@ -17,7 +17,7 @@ export default function AddMovie() {
   const handleSubmit = (event) => {
     event.preventDefault();
     setShowModal("visible");
-    NewData(inputs);
+    NewData(inputs).then(() => window.location.reload(false));
     setTimeout(() => {
       setShowModal("not-visible"); 
       window.location.href = '/';

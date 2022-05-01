@@ -1,48 +1,62 @@
 import { useEffect, useState } from "react";
+import {GetData} from "../../utils";
 import styles from "./style.module.scss";
 
-export default function Checkboxes({setCategoriesFilter}) {
-  
+export default function Checkboxes({setRender, setCategoriesFilter}) {
 
   const [inputs, setInputs] = useState([])
+  const [categories, setCategories] = useState([]);
 
   const handleChange = (e) => {
     const val= e.target.value;
 
     if(e.target.checked){
       setInputs((values) => ([...values, val])) 
+      setRender(true)
+
     }else{
       const index = inputs.indexOf(val)
-      // console.log("val", inputs);
       const newVal= inputs.splice(index, 1);
       setInputs(inputs)
+      console.log("val", inputs);
+      setRender(true)
+
     }
+    setRender(true)
 
   }
+
+  const wordToUpper = (text) => {
+    const strToArr = text.split("")
+    return strToArr[0].toUpperCase()+strToArr.slice(1).join("")
+  }
+
+  const getCategories = (data) => {
+    let catArray = [];
+    data.forEach((el) => {for (const genre of el.genres) {
+      if(catArray.indexOf(genre)===-1) catArray.push(genre)
+    }})
+    setCategories(catArray)
+  }
+
+  useEffect(() => {
+    GetData().then((data)=>getCategories(data))
+  }, [])
 
   useEffect(() => {
     setCategoriesFilter(inputs)
     console.log(inputs)
-
   }, [inputs])
 
   return (
     <div className={styles.Checkboxes}>
       <h3>Filtra per categoria:</h3>
-      <div className={styles.Checkboxes__group}>
-        <input onClick={handleChange} type="checkbox" value="avventura" id="avventura" />
-        <label htmlFor="avventura">Avventura</label>
+      {categories.map((cat, index) => 
+        <div key={index} className={styles.Checkboxes__group}>
+        <input onClick={handleChange} type="checkbox" value={cat} id={cat} />
+        <label htmlFor={cat}>{wordToUpper(cat)}</label>
       </div>
-
-      <div className={styles.Checkboxes__group}>
-        <input onClick={handleChange} type="checkbox" value="azione" id="azione" />
-        <label htmlFor="azione">Azione</label>
-      </div>
-
-      <div className={styles.Checkboxes__group}>
-        <input onClick={handleChange} type="checkbox" value="sci-fi" id="sci-fi" />
-        <label htmlFor="sci-fi">Sci-Fi</label>
-      </div>
+      )}
     </div>
   )
 }
