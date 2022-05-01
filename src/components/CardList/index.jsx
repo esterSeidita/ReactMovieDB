@@ -12,6 +12,7 @@ export default function CardList({
   const [movies, setMovies] = useState([]);
   const [moviesFiltered, setMoviesFiltered] = useState([]);
   const [modal, setModal] = useState({});
+  const [value, setValue] = useState(false);
 
   useEffect(() => {
     GetData().then((result) => {
@@ -36,6 +37,9 @@ export default function CardList({
     setMoviesFiltered(filtered);
   }, [filter]);
 
+  useEffect(()=>{
+    setValue(!value)
+  }, [categoriesFilter])
 
   return (
     <div className={styles.CardList}>
