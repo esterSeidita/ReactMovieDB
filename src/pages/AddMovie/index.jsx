@@ -2,10 +2,14 @@ import styles from "./style.module.scss";
 import { NewData } from "../../utils";
 import { useState } from "react";
 import Modal from "../../components/Modal";
+import Card from "../../components/Card";
+import {useNavigate  } from "react-router-dom";
+
 
 export default function AddMovie() {
   const [inputs, setInputs] = useState({});
   const [showModal, setShowModal] = useState("not-visible");
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -17,16 +21,25 @@ export default function AddMovie() {
   const handleSubmit = (event) => {
     event.preventDefault();
     setShowModal("visible");
-    NewData(inputs).then(() => window.location.reload(false));
-    setTimeout(() => {
+    NewData(inputs).then(() =>     setTimeout(() => {
       setShowModal("not-visible"); 
-      window.location.href = '/';
-  }, 3000);
+      navigate("/");
+  }, 3000)
+  )
+
   };
 
   return (
-    <>
-    <Modal showModal={showModal} title="Yeeee!" description="Film aggiunto con successo :D" needConfirm={false}/>
+    <div className={styles.AddMovie}>
+        <Modal showModal={showModal} title="Yeeee!" description="Film aggiunto con successo :D" needConfirm={false}/>
+            <Card
+          setUpdateCardId={false}
+          key={false}
+          cardID={false}
+          movie={inputs}
+          setModal={false}
+          needActions={false}
+        />     
     <form onSubmit={handleSubmit}>
       <label>Titolo</label>
       <input
@@ -69,6 +82,6 @@ export default function AddMovie() {
 
       <input type="submit" />
     </form>
-    </>
+    </div>
   );
 }

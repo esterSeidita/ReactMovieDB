@@ -7,7 +7,6 @@ import {useNavigate  } from "react-router-dom";
 export default function UpdateMovie({ updateCardId }) {
   const [inputs, setInputs] = useState({});
   const [cardData, setCardData] = useState([]);
-  const [redirect, setRedirect] = useState(false)
   const navigate = useNavigate();
 
   useEffect(() => {

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import {GetData} from "../../utils";
 import styles from "./style.scss";
 
-export default function Categories({setRender, setCategoriesFilter}) {
+export default function Categories({ setCategoriesFilter}) {
 
   const [categories, setCategories] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
@@ -16,15 +16,15 @@ export default function Categories({setRender, setCategoriesFilter}) {
 
     if(selectedCategories.indexOf(val)===-1){
       setSelectedCategories((values)=>[...values, val]);
-      setRender(true)
+      
     }
     else{
       const index = selectedCategories.indexOf(val)
       const newVal= selectedCategories.splice(index, 1);
       setSelectedCategories(selectedCategories)
-      setRender(true)
+      
     }
-    setRender(true)
+    
 
   }
 
