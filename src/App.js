@@ -7,7 +7,7 @@ import Header from "./components/Header";
 import AddMovie from './pages/AddMovie';
 import UpdateMovie from './pages/UpdateMovie';
 import Home from './pages/Home';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import {HashRouter as Router, Routes, Route} from 'react-router-dom';
 
 function App() {
   const [updateCardId, setUpdateCardId] = useState();
