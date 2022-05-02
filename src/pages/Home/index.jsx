@@ -5,41 +5,20 @@ import SearchInput from "../../components/SearchInput";
 import Modal from "./../../components/Modal";
 import { DeleteData } from "../../utils";
 import Categories from "../../components/Categories";
-import { useNavigate } from "react-router-dom";
 
-export default function Home({ setAlertData, setUpdateCardId }) {
+export default function Home({ onDeleteRender, setDeleted, setUpdateCardId }) {
   const [filter, setFilter] = useState("");
   const [modalInfo, setModalInfo] = useState({});
   const [deleteConfirmed, setDeleteConfirmed] = useState(false);
   const [categoriesFilter, setCategoriesFilter] = useState([]);
   const [render, setRender] = useState(false);
-  const navigate = useNavigate();
-
-  const [onDeleteRender, setDeleteRender] = useState(false)
-
-  // useEffect(() => {
-  //   setValue(false)
-  // }, [value])
 
   useEffect(() => {
     if (deleteConfirmed) {
-      setModalInfo({ show: "not-visible" });
       DeleteData(modalInfo.cardId).then(() => {
-
-        // setValue(true)
-        navigate('/')
-
-        
+        setDeleted(true);
         setDeleteConfirmed(false);
-        setAlertData({
-          content: "Film cancellato con successo.",
-          response: "DELETE",
-          display: true,
-        });
-        setTimeout(() => {
-          setAlertData({ content: "", response: "", display: false });
-          window.location.reload(false)
-        }, 3000);
+        setModalInfo({show: "not-visible"})
       });
     }
   }, [deleteConfirmed]);
@@ -64,7 +43,7 @@ export default function Home({ setAlertData, setUpdateCardId }) {
       <Categories setCategoriesFilter={setCategoriesFilter} />
       <SearchInput setFilter={setFilter} />
       <CardList
-      // value = {value}
+        onDeleteRender={onDeleteRender}
         categoriesFilter={categoriesFilter}
         setModalInfo={setModalInfo}
         filter={filter}

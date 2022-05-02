@@ -30,7 +30,7 @@ export default function Form({
         setTimeout(() => {
           setShowModal("not-visible");
           navigate("/");
-        }, 3000);
+        }, 1000);
         setTimeout(()=>{  
           setAlertData({content:"", response:"", display:false})
       }, 5000);

@@ -15,12 +15,13 @@ export default function CardList({
   const [modal, setModal] = useState({});
   const [value, setValue] = useState(false);
 
+
   useEffect(() => {
     GetData().then((result) => {
       setMovies(result);
       setMoviesFiltered(result);
     });
-  }, []);
+  }, [value]);
  
 
   useEffect(() => {
@@ -29,8 +30,8 @@ export default function CardList({
 
 
   useEffect(() => {
-    setModalInfo(modal);
-  }, [modal]);
+    setValue(!value)
+  }, [onDeleteRender]);
 
 
   useEffect(() => {
