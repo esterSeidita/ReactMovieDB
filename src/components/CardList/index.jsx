@@ -70,6 +70,7 @@ export default function CardList({
               cardID={movie.id}
               movie={movie}
               setModal={setModal}
+              needActions={true}
             />
           )
         )
