@@ -8,6 +8,7 @@ export default function CardList({
   categoriesFilter,
   filter,
   setUpdateCardId,
+  deleteConfirmed,
 }) {
   const [movies, setMovies] = useState([]);
   const [moviesFiltered, setMoviesFiltered] = useState([]);
@@ -20,6 +21,7 @@ export default function CardList({
       setMoviesFiltered(result);
     });
   }, []);
+ 
 
   useEffect(() => {
     setModalInfo(modal);
@@ -37,34 +39,34 @@ export default function CardList({
     setMoviesFiltered(filtered);
   }, [filter]);
 
-  useEffect(()=>{
-    setValue(!value)
-  }, [categoriesFilter])
+  useEffect(() => {
+    setValue(!value);
+  }, [categoriesFilter]);
 
   return (
     <div className={styles.CardList}>
-      {moviesFiltered.map((movie, index) => (
-        categoriesFilter.length===0 ?
-        <Card
-          setUpdateCardId={setUpdateCardId}
-          key={index}
-          cardID={movie.id}
-          movie={movie}
-          setModal={setModal}
-          needActions={true}
-        /> 
-        : 
-        movie.genres.some((genre) => categoriesFilter.includes(genre)) &&
-        <Card
-          setUpdateCardId={setUpdateCardId}
-          key={index}
-          cardID={movie.id}
-          movie={movie}
-          setModal={setModal}
-        />
-        
-      ))}
-
+      {moviesFiltered.map((movie, index) =>
+        categoriesFilter.length === 0 ? (
+          <Card
+            setUpdateCardId={setUpdateCardId}
+            key={index}
+            cardID={movie.id}
+            movie={movie}
+            setModal={setModal}
+            needActions={true}
+          />
+        ) : (
+          movie.genres.some((genre) => categoriesFilter.includes(genre)) && (
+            <Card
+              setUpdateCardId={setUpdateCardId}
+              key={index}
+              cardID={movie.id}
+              movie={movie}
+              setModal={setModal}
+            />
+          )
+        )
+      )}
     </div>
   );
 }

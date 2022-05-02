@@ -3,22 +3,25 @@ import { DeleteData } from "../../utils";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-export default function Card({ setModal, movie, cardID, setUpdateCardId, needActions}) {
-  
+export default function Card({
+  setModal,
+  movie,
+  cardID,
+  setUpdateCardId,
+  needActions
+}) {
   const updateCard = () => {
     setUpdateCardId(cardID);
   };
 
   const deleteAction = () => {
-
     setModal({
       show: "visible",
       title: "Sicuro di volere eliminare?",
       description: "",
       needConfirm: true,
-      cardId: cardID
+      cardId: cardID,
     });
-
   };
 
   return (
@@ -38,12 +41,14 @@ export default function Card({ setModal, movie, cardID, setUpdateCardId, needAct
             <li>{movie.genres}</li>
           )}
         </ul>
-        {needActions && <>
-          <button onClick={deleteAction}>Delete</button>
-          <Link to={"UpdateMovie"}>
-            <button onClick={() => updateCard()}>Update</button>
-          </Link>
-        </>}
+        {needActions && (
+          <>
+            <button onClick={deleteAction}>Delete</button>
+            <Link to={"UpdateMovie"}>
+              <button onClick={() => updateCard()}>Update</button>
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );

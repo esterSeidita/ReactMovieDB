@@ -4,7 +4,7 @@ import Modal from "../../components/Modal";
 import Card from "../../components/Card";
 import Form from "../../components/Form";
 
-export default function AddMovie() {
+export default function AddMovie({setAlertData}) {
   const [showModal, setShowModal] = useState("not-visible");
   const [inputs, setInputs] = useState({});
 
@@ -30,6 +30,7 @@ export default function AddMovie() {
         inputs={inputs}
         setInputs={setInputs}
         cardID = {false}
+        setAlertData={setAlertData} 
       />
     </div>
   );

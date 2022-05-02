@@ -5,9 +5,11 @@ import Card from "../../components/Card";
 import Form from "../../components/Form";
 import {useNavigate  } from "react-router-dom";
 
-export default function UpdateMovie({ updateCardId }) {
+export default function UpdateMovie({ setAlertData, updateCardId }) {
   const [inputs, setInputs] = useState({});
   const [cardData, setCardData] = useState([]);
+  const [showModal, setShowModal] = useState("not-visible");
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,12 +23,6 @@ export default function UpdateMovie({ updateCardId }) {
 
  
 
-  const handleSubmit = (event) => {
-    event.preventDefault();   
-    UpdateData(updateCardId, inputs).then(() => navigate("/"))
-  };
-
-
   return (
     <div className={styles.UpdateMovie}>
             <Card
@@ -38,10 +34,11 @@ export default function UpdateMovie({ updateCardId }) {
           needActions={false}
         /> 
       <Form
-        setShowModal={false}
+        setShowModal={setShowModal}
         method="UPDATE"
         inputs={inputs}
         setInputs={setInputs}
+        setAlertData={setAlertData}
       />
     </div>
   );

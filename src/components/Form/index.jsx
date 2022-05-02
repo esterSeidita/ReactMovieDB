@@ -8,6 +8,7 @@ export default function Form({
   inputs,
   setInputs,
   method,
+  setAlertData
 }) {
   const navigate = useNavigate();
 
@@ -21,15 +22,31 @@ export default function Form({
   const handleSubmit = (event) => {
     event.preventDefault();
     setShowModal("visible");
-    method === "POST" &&
-      NewData(inputs).then(() =>
+
+    if (method === "POST"){
+      setAlertData({content:"Film aggiunto con successo", response:"CREATE", display:true})
+
+      NewData(inputs).then(() => {
         setTimeout(() => {
           setShowModal("not-visible");
           navigate("/");
-        }, 3000)
+        }, 3000);
+        setTimeout(()=>{  
+          setAlertData({content:"", response:"", display:false})
+      }, 5000);
+      }
       );
-    method === "UPDATE" &&
-      UpdateData(inputs.id, inputs).then(() => navigate("/"));
+    }
+     
+    if(method === "UPDATE"){
+      setAlertData({content:"Film aggiornato con successo", response:"UPDATE", display:true})
+
+      UpdateData(inputs.id, inputs).then(() =>{   
+        navigate("/")      
+        setTimeout(()=>{  
+        setAlertData({content:"", response:"", display:false})
+    }, 5000);});
+    }
   };
 
   return (

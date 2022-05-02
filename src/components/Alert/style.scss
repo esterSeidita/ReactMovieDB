@@ -1,0 +1,14 @@
+.Alert{
+    padding:1em;
+    color: aliceblue;
+    &.UPDATE{
+        background-color: green;
+    }
+    &.DELETE{
+        background-color: red;
+    }
+    &.CREATE{
+        background-color: var(--tagColor);
+    }
+}
+
