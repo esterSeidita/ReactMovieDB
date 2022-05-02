@@ -39,3 +39,7 @@ export async function NewData (datas) {
     })
 }
 
+export const wordToUpper = (text) => {
+    const strToArr = text.trim().toLowerCase().split("")
+    return strToArr[0].toUpperCase()+strToArr.slice(1).join("")
+  }

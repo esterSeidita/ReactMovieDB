@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {GetData} from "../../utils";
+import {GetData, wordToUpper} from "../../utils";
 import styles from "./style.module.scss";
 
 export default function Checkboxes({setRender, setCategoriesFilter}) {
@@ -23,11 +23,6 @@ export default function Checkboxes({setRender, setCategoriesFilter}) {
     }
     setRender(true)
 
-  }
-
-  const wordToUpper = (text) => {
-    const strToArr = text.split("")
-    return strToArr[0].toUpperCase()+strToArr.slice(1).join("")
   }
 
   const getCategories = (data) => {

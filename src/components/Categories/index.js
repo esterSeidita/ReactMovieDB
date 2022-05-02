@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {GetData} from "../../utils";
+import {GetData, wordToUpper} from "../../utils";
 import styles from "./style.scss";
 
 export default function Categories({ setCategoriesFilter}) {
@@ -22,15 +22,7 @@ export default function Categories({ setCategoriesFilter}) {
       const index = selectedCategories.indexOf(val)
       const newVal= selectedCategories.splice(index, 1);
       setSelectedCategories(selectedCategories)
-      
     }
-    
-
-  }
-
-  const wordToUpper = (text) => {
-    const strToArr = text.trim().split("")
-    return strToArr[0].toUpperCase()+strToArr.slice(1).join("")
   }
 
   const getCategories = (data) => {
