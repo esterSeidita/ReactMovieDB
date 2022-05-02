@@ -82,7 +82,7 @@ export default function Form({
         onChange={handleChange}
       />
 
-      <label>Generi</label>
+      <label>Genere (Tag)</label>
       <input
         type="text"
         name="genres"

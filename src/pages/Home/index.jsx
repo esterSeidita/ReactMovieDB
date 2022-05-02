@@ -5,7 +5,7 @@ import SearchInput from "../../components/SearchInput";
 import Modal from "./../../components/Modal";
 import { DeleteData } from "../../utils";
 import Categories from "../../components/Categories";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Home({ setAlertData, setUpdateCardId }) {
   const [filter, setFilter] = useState("");
@@ -13,23 +13,33 @@ export default function Home({ setAlertData, setUpdateCardId }) {
   const [deleteConfirmed, setDeleteConfirmed] = useState(false);
   const [categoriesFilter, setCategoriesFilter] = useState([]);
   const [render, setRender] = useState(false);
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
+
+  const [onDeleteRender, setDeleteRender] = useState(false)
+
+  // useEffect(() => {
+  //   setValue(false)
+  // }, [value])
 
   useEffect(() => {
     if (deleteConfirmed) {
-      // setModalInfo({ show: "not-visible" });
+      setModalInfo({ show: "not-visible" });
       DeleteData(modalInfo.cardId).then(() => {
-        window.location.reload(false)
+
+        // setValue(true)
+        navigate('/')
+
         
-        // setDeleteConfirmed(false);
-        // setAlertData({
-        //   content: "Film cancellato con successo.",
-        //   response: "DELETE",
-        //   display: true,
-        // });
-        // setTimeout(() => {
-        //   setAlertData({ content: "", response: "", display: false });
-        // }, 5000);
+        setDeleteConfirmed(false);
+        setAlertData({
+          content: "Film cancellato con successo.",
+          response: "DELETE",
+          display: true,
+        });
+        setTimeout(() => {
+          setAlertData({ content: "", response: "", display: false });
+          window.location.reload(false)
+        }, 3000);
       });
     }
   }, [deleteConfirmed]);
@@ -54,6 +64,7 @@ export default function Home({ setAlertData, setUpdateCardId }) {
       <Categories setCategoriesFilter={setCategoriesFilter} />
       <SearchInput setFilter={setFilter} />
       <CardList
+      // value = {value}
         categoriesFilter={categoriesFilter}
         setModalInfo={setModalInfo}
         filter={filter}

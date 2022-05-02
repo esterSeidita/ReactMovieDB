@@ -8,7 +8,7 @@ export default function CardList({
   categoriesFilter,
   filter,
   setUpdateCardId,
-  deleteConfirmed,
+  onDeleteRender
 }) {
   const [movies, setMovies] = useState([]);
   const [moviesFiltered, setMoviesFiltered] = useState([]);
@@ -26,6 +26,12 @@ export default function CardList({
   useEffect(() => {
     setModalInfo(modal);
   }, [modal]);
+
+
+  useEffect(() => {
+    setModalInfo(modal);
+  }, [modal]);
+
 
   useEffect(() => {
     const filtered = movies.filter(
