@@ -12,6 +12,7 @@
         border-radius: 0.5em;
         font-weight: bold;
         cursor: pointer;
+        transition: all 0.5s linear;
     }
     .selected{
         background-color: var(--tagColor);
