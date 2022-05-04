@@ -10,26 +10,22 @@ export default function UpdateMovie({ setAlertData, updateCardId }) {
   const [showModal, setShowModal] = useState("not-visible");
 
   useEffect(() => {
-    GetData(updateCardId).then((data)=>
-  {  
-    setCardData(data)
-    setInputs(data)
-    }
-    )
-  }, [])
-
- 
+    GetData(updateCardId).then((data) => {
+      setCardData(data);
+      setInputs(data);
+    });
+  }, []);
 
   return (
     <div className={styles.UpdateMovie}>
-            <Card
-          setUpdateCardId={false}
-          key={cardData.id}
-          cardID={cardData.id}
-          movie={inputs}
-          setModal={false}
-          needActions={false}
-        /> 
+      <Card
+        setUpdateCardId={false}
+        key={cardData.id}
+        cardID={cardData.id}
+        movie={inputs}
+        setModal={false}
+        needActions={false}
+      />
       <Form
         setShowModal={setShowModal}
         method="UPDATE"
