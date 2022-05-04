@@ -1,0 +1,2 @@
+- name: gh-pages for Github Action
+  uses: axetroy/gh-pages-action@0.0.21
