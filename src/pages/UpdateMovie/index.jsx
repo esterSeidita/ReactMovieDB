@@ -8,14 +8,14 @@ export default function UpdateMovie({ setAlertData, updateCardId }) {
   const [inputs, setInputs] = useState({});
   const [cardData, setCardData] = useState([]);
   // const [showModal, setShowModal] = useState("not-visible");
-
+  
   useEffect(() => {
-    //eslint-disable-next-line;
-
+    
     GetData(updateCardId).then((data) => {
       setCardData(data);
       setInputs(data);
     });
+// eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

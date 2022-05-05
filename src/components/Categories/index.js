@@ -36,8 +36,8 @@ export default function Categories({ setCategoriesFilter }) {
   }, []);
 
   useEffect(() => {
-    //eslint-disable-next-line;
     setCategoriesFilter(selectedCategories);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedCategories]);
 
   return (

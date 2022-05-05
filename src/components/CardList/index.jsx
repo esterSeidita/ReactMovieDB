@@ -23,22 +23,21 @@ export default function CardList({
   }, [onDeleteRender]);
 
   useEffect(() => {
-    //eslint-disable-next-line;
     setModalInfo(modal);
+    //eslint-disable-next-line;
   }, [modal]);
 
   useEffect(() => {
-    //eslint-disable-next-line;
     setValue(!value);
+    //eslint-disable-next-line;
   }, [categoriesFilter]);
 
   useEffect(() => {
-    //eslint-disable-next-line;
     setValue(!value);
+    //eslint-disable-next-line;
   }, [onDeleteRender]);
 
   useEffect(() => {
-    //eslint-disable-next-line;
     const filtered = movies.filter(
       (movie) =>
         (movie.title &&
@@ -48,6 +47,7 @@ export default function CardList({
           movie.genres.join("").toLowerCase().includes(filter.toLowerCase()))
     );
     setMoviesFiltered(filtered);
+    //eslint-disable-next-line;
   }, [filter]);
 
   return (
