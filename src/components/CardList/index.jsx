@@ -23,18 +23,19 @@ export default function CardList({
   }, [onDeleteRender]);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     setModalInfo(modal);
-    //eslint-disable-next-line;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [modal]);
 
   useEffect(() => {
     setValue(!value);
-    //eslint-disable-next-line;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [categoriesFilter]);
 
   useEffect(() => {
     setValue(!value);
-    //eslint-disable-next-line;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [onDeleteRender]);
 
   useEffect(() => {
@@ -47,7 +48,7 @@ export default function CardList({
           movie.genres.join("").toLowerCase().includes(filter.toLowerCase()))
     );
     setMoviesFiltered(filtered);
-    //eslint-disable-next-line;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter]);
 
   return (
