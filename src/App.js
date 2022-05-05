@@ -4,7 +4,7 @@ import { lazy, useEffect, useState, Suspense } from "react";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Alert from "./components/Alert";
-import Loading from "./components/Loading";
+import HomepageLoading from "./components/HomepageLoading";
 
 function App() {
   const [updateCardId, setUpdateCardId] = useState();
@@ -46,7 +46,7 @@ function App() {
           <Route
             index
             element={
-              <Suspense fallback={<Loading />}>
+              <Suspense fallback={<HomepageLoading />}>
                 <Home
                   onDeleteRender={deleted}
                   setDeleted={setDeleted}
@@ -58,7 +58,7 @@ function App() {
           <Route
             path="ReactMovieDB"
             element={
-              <Suspense fallback={<Loading />}>
+              <Suspense>
                 <Home
                   onDeleteRender={deleted}
                   setDeleted={setDeleted}
@@ -70,7 +70,7 @@ function App() {
           <Route
             path="AddMovie"
             element={
-              <Suspense fallback={<Loading />}>
+              <Suspense>
                 <AddMovie setAlertData={setAlertData} />
               </Suspense>
             }
@@ -78,7 +78,7 @@ function App() {
           <Route
             path="UpdateMovie"
             element={
-              <Suspense fallback={<Loading />}>
+              <Suspense>
                 <UpdateMovie
                   setAlertData={setAlertData}
                   updateCardId={updateCardId}
