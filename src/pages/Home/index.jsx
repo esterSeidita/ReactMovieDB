@@ -5,6 +5,7 @@ import SearchInput from "../../components/SearchInput";
 import Modal from "./../../components/Modal";
 import { DeleteData } from "../../utils";
 import Categories from "../../components/Categories";
+import Skeleton from "react-loading-skeleton";
 
 export default function Home({ onDeleteRender, setDeleted, setUpdateCardId }) {
   const [filter, setFilter] = useState("");

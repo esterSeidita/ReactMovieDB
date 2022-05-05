@@ -2,13 +2,11 @@ import "normalize.css";
 import "./App.css";
 import { lazy, useEffect, useState, Suspense } from "react";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
-import Footer from "./components/Footer";
 import Header from "./components/Header";
-// import AddMovie from "./pages/AddMovie";
-// import UpdateMovie from "./pages/UpdateMovie";
-// import Home from "./pages/Home";
 import Alert from "./components/Alert";
-import Loading from "./components/Loading";
+// import Loading from "./components/Loading";
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 function App() {
   const [updateCardId, setUpdateCardId] = useState();
@@ -50,7 +48,7 @@ function App() {
           <Route
             index
             element={
-              <Suspense fallback={<Loading />}>
+              <Suspense fallback={<Skeleton />}>
                 <Home
                   onDeleteRender={deleted}
                   setDeleted={setDeleted}
@@ -62,7 +60,7 @@ function App() {
           <Route
             path="ReactMovieDB"
             element={
-              <Suspense fallback={<Loading />}>
+              <Suspense fallback={<Skeleton />}>
                 <Home
                   onDeleteRender={deleted}
                   setDeleted={setDeleted}
@@ -74,7 +72,7 @@ function App() {
           <Route
             path="AddMovie"
             element={
-              <Suspense fallback={<Loading />}>
+              <Suspense fallback={<Skeleton />}>
                 <AddMovie setAlertData={setAlertData} />
               </Suspense>
             }
@@ -82,7 +80,7 @@ function App() {
           <Route
             path="UpdateMovie"
             element={
-              <Suspense fallback={<Loading />}>
+              <Suspense fallback={<Skeleton />}>
                 <UpdateMovie
                   setAlertData={setAlertData}
                   updateCardId={updateCardId}
@@ -91,7 +89,6 @@ function App() {
             }
           ></Route>
         </Routes>
-        <Footer />
       </Router>
     </div>
   );

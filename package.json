@@ -1,7 +1,7 @@
 {
   "name": "react-movies-db",
   "version": "0.1.0",
-  "homepage": "https://esterseidita.github.io/ReactMovieDB/",
+  "homepage": "https:esterseidita.github.io/ReactMovieDB/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
@@ -12,6 +12,7 @@
     "react": "^18.0.0",
     "react-css-modules": "^4.7.11",
     "react-dom": "^18.0.0",
+    "react-loading-skeleton": "^3.1.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "sass": "^1.51.0",
