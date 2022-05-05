@@ -21,6 +21,7 @@ export default function Home({ onDeleteRender, setDeleted, setUpdateCardId }) {
         setModalInfo({show: "not-visible"})
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [deleteConfirmed]);
 
   useEffect(() => {
