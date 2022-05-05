@@ -1,13 +1,14 @@
 import "normalize.css";
 import "./App.css";
-import { useEffect, useState } from "react";
+import { lazy, useEffect, useState, Suspense } from "react";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import AddMovie from "./pages/AddMovie";
-import UpdateMovie from "./pages/UpdateMovie";
-import Home from "./pages/Home";
+// import AddMovie from "./pages/AddMovie";
+// import UpdateMovie from "./pages/UpdateMovie";
+// import Home from "./pages/Home";
 import Alert from "./components/Alert";
+import Loading from "./components/Loading";
 
 function App() {
   const [updateCardId, setUpdateCardId] = useState();
@@ -17,11 +18,9 @@ function App() {
     display: false,
   });
   const [deleted, setDeleted] = useState(false);
-  
 
   useEffect(() => {
-    if(deleted === true){
-
+    if (deleted === true) {
       setAlertData({
         content: "Film cancellato con successo.",
         response: "DELETE",
@@ -29,14 +28,16 @@ function App() {
       });
 
       setDeleted(false);
-  
+
       setTimeout(() => {
         setAlertData({ content: "", response: "", display: false });
       }, 7000);
-
     }
   }, [deleted]);
 
+  const Home = lazy(() => import("./pages/Home"));
+  const AddMovie = lazy(() => import("./pages/AddMovie"));
+  const UpdateMovie = lazy(() => import("./pages/UpdateMovie"));
 
   return (
     <div className="App">
@@ -49,28 +50,44 @@ function App() {
           <Route
             index
             element={
-              <Home
-                onDeleteRender = {deleted}
-                setDeleted={setDeleted}
-                setUpdateCardId={setUpdateCardId}
-              />
+              <Suspense fallback={<Loading />}>
+                <Home
+                  onDeleteRender={deleted}
+                  setDeleted={setDeleted}
+                  setUpdateCardId={setUpdateCardId}
+                />
+              </Suspense>
             }
           ></Route>
           <Route
             path="ReactMovieDB"
-            element={<Home setUpdateCardId={setUpdateCardId} />}
+            element={
+              <Suspense fallback={<Loading />}>
+                <Home
+                  onDeleteRender={deleted}
+                  setDeleted={setDeleted}
+                  setUpdateCardId={setUpdateCardId}
+                />
+              </Suspense>
+            }
           ></Route>
           <Route
             path="AddMovie"
-            element={<AddMovie setAlertData={setAlertData} />}
+            element={
+              <Suspense fallback={<Loading />}>
+                <AddMovie setAlertData={setAlertData} />
+              </Suspense>
+            }
           ></Route>
           <Route
             path="UpdateMovie"
             element={
-              <UpdateMovie
-                setAlertData={setAlertData}
-                updateCardId={updateCardId}
-              />
+              <Suspense fallback={<Loading />}>
+                <UpdateMovie
+                  setAlertData={setAlertData}
+                  updateCardId={updateCardId}
+                />
+              </Suspense>
             }
           ></Route>
         </Routes>

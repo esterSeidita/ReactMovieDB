@@ -7,9 +7,11 @@ import Form from "../../components/Form";
 export default function UpdateMovie({ setAlertData, updateCardId }) {
   const [inputs, setInputs] = useState({});
   const [cardData, setCardData] = useState([]);
-  const [showModal, setShowModal] = useState("not-visible");
+  // const [showModal, setShowModal] = useState("not-visible");
 
   useEffect(() => {
+    //eslint-disable-next-line;
+
     GetData(updateCardId).then((data) => {
       setCardData(data);
       setInputs(data);
@@ -27,7 +29,7 @@ export default function UpdateMovie({ setAlertData, updateCardId }) {
         needActions={false}
       />
       <Form
-        setShowModal={setShowModal}
+        // setShowModal={setShowModal}
         method="UPDATE"
         inputs={inputs}
         setInputs={setInputs}

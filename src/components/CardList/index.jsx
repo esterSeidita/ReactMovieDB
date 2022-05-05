@@ -8,33 +8,37 @@ export default function CardList({
   categoriesFilter,
   filter,
   setUpdateCardId,
-  onDeleteRender
+  onDeleteRender,
 }) {
   const [movies, setMovies] = useState([]);
   const [moviesFiltered, setMoviesFiltered] = useState([]);
   const [modal, setModal] = useState({});
   const [value, setValue] = useState(false);
 
-
   useEffect(() => {
     GetData().then((result) => {
       setMovies(result);
       setMoviesFiltered(result);
     });
-  }, [value]);
- 
+  }, [onDeleteRender]);
 
   useEffect(() => {
+    //eslint-disable-next-line;
     setModalInfo(modal);
   }, [modal]);
 
+  useEffect(() => {
+    //eslint-disable-next-line;
+    setValue(!value);
+  }, [categoriesFilter]);
 
   useEffect(() => {
-    setValue(!value)
+    //eslint-disable-next-line;
+    setValue(!value);
   }, [onDeleteRender]);
 
-
   useEffect(() => {
+    //eslint-disable-next-line;
     const filtered = movies.filter(
       (movie) =>
         (movie.title &&
@@ -45,10 +49,6 @@ export default function CardList({
     );
     setMoviesFiltered(filtered);
   }, [filter]);
-
-  useEffect(() => {
-    setValue(!value);
-  }, [categoriesFilter]);
 
   return (
     <div className={styles.CardList}>

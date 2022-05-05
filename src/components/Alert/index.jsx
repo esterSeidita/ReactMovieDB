@@ -1,4 +1,4 @@
-import styles from "./style.scss"
+import "./style.scss"
 
 export default function Alert ({content, response}) {
     return (

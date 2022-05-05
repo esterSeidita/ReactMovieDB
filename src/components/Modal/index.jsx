@@ -31,7 +31,6 @@ export default function Modal({
             <button
               onClick={() => {
                 setDeleteConfirmed(false);
-                // setVisibility("not-visible");
                 window.location.href = "/ReactMovieDB";
               }}
               className="abort"

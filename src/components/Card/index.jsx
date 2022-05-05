@@ -1,7 +1,5 @@
 import styles from "./style.module.scss";
-import { DeleteData } from "../../utils";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 
 export default function Card({
   setModal,

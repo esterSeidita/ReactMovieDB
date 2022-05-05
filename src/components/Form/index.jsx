@@ -1,10 +1,9 @@
-import { useState } from "react";
 import { NewData, UpdateData } from "../../utils";
 import { useNavigate } from "react-router-dom";
 import styles from "./style.module.scss";
 
 export default function Form({
-  setShowModal,
+  // setShowModal,
   inputs,
   setInputs,
   method,
@@ -21,14 +20,14 @@ export default function Form({
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setShowModal("visible");
+    // setShowModal("visible");
 
     if (method === "POST"){
       setAlertData({content:"Film aggiunto con successo", response:"CREATE", display:true})
 
       NewData(inputs).then(() => {
         setTimeout(() => {
-          setShowModal("not-visible");
+          // setShowModal("not-visible");
           navigate("/");
         }, 1000);
         setTimeout(()=>{  
