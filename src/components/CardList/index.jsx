@@ -8,35 +8,22 @@ export default function CardList({
   categoriesFilter,
   filter,
   setUpdateCardId,
-  onDeleteRender,
+  render
 }) {
   const [movies, setMovies] = useState([]);
   const [moviesFiltered, setMoviesFiltered] = useState([]);
   const [modal, setModal] = useState({});
-  const [value, setValue] = useState(false);
 
   useEffect(() => {
     GetData().then((result) => {
       setMovies(result);
       setMoviesFiltered(result);
     });
-  }, [onDeleteRender]);
+  }, [render, categoriesFilter]);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     setModalInfo(modal);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [modal]);
-
-  useEffect(() => {
-    setValue(!value);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [categoriesFilter]);
-
-  useEffect(() => {
-    setValue(!value);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [onDeleteRender]);
+  }, [modal, setModalInfo]);
 
   useEffect(() => {
     const filtered = movies.filter(
@@ -48,7 +35,7 @@ export default function CardList({
           movie.genres.join("").toLowerCase().includes(filter.toLowerCase()))
     );
     setMoviesFiltered(filtered);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+ // eslint-disable-next-line
   }, [filter]);
 
   return (

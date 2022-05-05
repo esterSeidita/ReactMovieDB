@@ -5,7 +5,6 @@ import "./style.scss";
 export default function Categories({ setCategoriesFilter }) {
   const [categories, setCategories] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
-  // const [selected, setSelected] = useState("not-Selected")
 
   const handleChange = (e) => {
     const val = e.target.id;
@@ -24,6 +23,7 @@ export default function Categories({ setCategoriesFilter }) {
   const getCategories = (data) => {
     let catArray = [];
     data.forEach((el) => {
+      if (el.genres)
       for (const genre of el.genres) {
         if (catArray.indexOf(genre) === -1) catArray.push(genre);
       }
@@ -37,8 +37,7 @@ export default function Categories({ setCategoriesFilter }) {
 
   useEffect(() => {
     setCategoriesFilter(selectedCategories);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedCategories]);
+  }, [selectedCategories, setCategoriesFilter]);
 
   return (
     <div className="Categories">

@@ -4,9 +4,7 @@ import { lazy, useEffect, useState, Suspense } from "react";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Alert from "./components/Alert";
-// import Loading from "./components/Loading";
-import Skeleton from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css'
+import Loading from "./components/Loading";
 
 function App() {
   const [updateCardId, setUpdateCardId] = useState();
@@ -48,7 +46,7 @@ function App() {
           <Route
             index
             element={
-              <Suspense fallback={<Skeleton />}>
+              <Suspense fallback={<Loading />}>
                 <Home
                   onDeleteRender={deleted}
                   setDeleted={setDeleted}
@@ -60,7 +58,7 @@ function App() {
           <Route
             path="ReactMovieDB"
             element={
-              <Suspense fallback={<Skeleton />}>
+              <Suspense fallback={<Loading />}>
                 <Home
                   onDeleteRender={deleted}
                   setDeleted={setDeleted}
@@ -72,7 +70,7 @@ function App() {
           <Route
             path="AddMovie"
             element={
-              <Suspense fallback={<Skeleton />}>
+              <Suspense fallback={<Loading />}>
                 <AddMovie setAlertData={setAlertData} />
               </Suspense>
             }
@@ -80,7 +78,7 @@ function App() {
           <Route
             path="UpdateMovie"
             element={
-              <Suspense fallback={<Skeleton />}>
+              <Suspense fallback={<Loading />}>
                 <UpdateMovie
                   setAlertData={setAlertData}
                   updateCardId={updateCardId}

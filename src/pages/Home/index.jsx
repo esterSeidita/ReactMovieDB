@@ -5,9 +5,8 @@ import SearchInput from "../../components/SearchInput";
 import Modal from "./../../components/Modal";
 import { DeleteData } from "../../utils";
 import Categories from "../../components/Categories";
-import Skeleton from "react-loading-skeleton";
 
-export default function Home({ onDeleteRender, setDeleted, setUpdateCardId }) {
+export default function Home({ setDeleted, setUpdateCardId }) {
   const [filter, setFilter] = useState("");
   const [modalInfo, setModalInfo] = useState({});
   const [deleteConfirmed, setDeleteConfirmed] = useState(false);
@@ -17,17 +16,14 @@ export default function Home({ onDeleteRender, setDeleted, setUpdateCardId }) {
   useEffect(() => {
     if (deleteConfirmed) {
       DeleteData(modalInfo.cardId).then(() => {
-        setDeleted(true);
-        setDeleteConfirmed(false);
         setModalInfo({show: "not-visible"})
+        setDeleted(true);
+        setDeleteConfirmed("");
+        setRender(!render);
       });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line 
   }, [deleteConfirmed]);
-
-  useEffect(() => {
-    setRender(!render);
-  }, [render]);
 
   return (
     <>
@@ -37,6 +33,7 @@ export default function Home({ onDeleteRender, setDeleted, setUpdateCardId }) {
         title={modalInfo.title || ""}
         needConfirm={modalInfo.needConfirm || false}
         setDeleteConfirmed={setDeleteConfirmed}
+        setRender = {setRender}
       />
       {/* <Checkboxes
         setCategoriesFilter={setCategoriesFilter}
@@ -45,12 +42,11 @@ export default function Home({ onDeleteRender, setDeleted, setUpdateCardId }) {
       <Categories setCategoriesFilter={setCategoriesFilter} />
       <SearchInput setFilter={setFilter} />
       <CardList
-        onDeleteRender={onDeleteRender}
         categoriesFilter={categoriesFilter}
         setModalInfo={setModalInfo}
         filter={filter}
         setUpdateCardId={setUpdateCardId}
-        deleteConfirmed={deleteConfirmed}
+        render={render}
       />
     </>
   );

@@ -7,6 +7,7 @@ export default function Modal({
   title,
   description,
   needConfirm,
+  setRender,
 }) {
   const [visibility, setVisibility] = useState("not-visible");
 
@@ -30,8 +31,7 @@ export default function Modal({
             </button>
             <button
               onClick={() => {
-                setDeleteConfirmed(false);
-                window.location.href = "/ReactMovieDB";
+                window.location.reload(false)
               }}
               className="abort"
             >
