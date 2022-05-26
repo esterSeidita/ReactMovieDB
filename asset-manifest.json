@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/ReactMovieDB/static/css/main.13d6ed59.css",
-    "main.js": "/ReactMovieDB/static/js/main.cc86230b.js",
-    "static/css/343.3b2cc628.chunk.css": "/ReactMovieDB/static/css/343.3b2cc628.chunk.css",
+    "main.css": "/ReactMovieDB/static/css/main.03fa1768.css",
+    "main.js": "/ReactMovieDB/static/js/main.3c9bba10.js",
+    "static/css/343.dfad0b5d.chunk.css": "/ReactMovieDB/static/css/343.dfad0b5d.chunk.css",
     "static/js/343.85b4abf7.chunk.js": "/ReactMovieDB/static/js/343.85b4abf7.chunk.js",
-    "static/css/316.ae18ba8e.chunk.css": "/ReactMovieDB/static/css/316.ae18ba8e.chunk.css",
+    "static/css/316.dfa7c155.chunk.css": "/ReactMovieDB/static/css/316.dfa7c155.chunk.css",
     "static/js/316.a48f5579.chunk.js": "/ReactMovieDB/static/js/316.a48f5579.chunk.js",
     "static/css/850.f34d88e3.chunk.css": "/ReactMovieDB/static/css/850.f34d88e3.chunk.css",
     "static/js/850.eab4e653.chunk.js": "/ReactMovieDB/static/js/850.eab4e653.chunk.js",
@@ -12,11 +12,11 @@
     "static/js/105.84f3a73b.chunk.js": "/ReactMovieDB/static/js/105.84f3a73b.chunk.js",
     "static/media/logo.png": "/ReactMovieDB/static/media/logo.2ecac79ce8ab62e2df71.png",
     "index.html": "/ReactMovieDB/index.html",
-    "main.13d6ed59.css.map": "/ReactMovieDB/static/css/main.13d6ed59.css.map",
-    "main.cc86230b.js.map": "/ReactMovieDB/static/js/main.cc86230b.js.map",
-    "343.3b2cc628.chunk.css.map": "/ReactMovieDB/static/css/343.3b2cc628.chunk.css.map",
+    "main.03fa1768.css.map": "/ReactMovieDB/static/css/main.03fa1768.css.map",
+    "main.3c9bba10.js.map": "/ReactMovieDB/static/js/main.3c9bba10.js.map",
+    "343.dfad0b5d.chunk.css.map": "/ReactMovieDB/static/css/343.dfad0b5d.chunk.css.map",
     "343.85b4abf7.chunk.js.map": "/ReactMovieDB/static/js/343.85b4abf7.chunk.js.map",
-    "316.ae18ba8e.chunk.css.map": "/ReactMovieDB/static/css/316.ae18ba8e.chunk.css.map",
+    "316.dfa7c155.chunk.css.map": "/ReactMovieDB/static/css/316.dfa7c155.chunk.css.map",
     "316.a48f5579.chunk.js.map": "/ReactMovieDB/static/js/316.a48f5579.chunk.js.map",
     "850.f34d88e3.chunk.css.map": "/ReactMovieDB/static/css/850.f34d88e3.chunk.css.map",
     "850.eab4e653.chunk.js.map": "/ReactMovieDB/static/js/850.eab4e653.chunk.js.map",
@@ -24,7 +24,7 @@
     "105.84f3a73b.chunk.js.map": "/ReactMovieDB/static/js/105.84f3a73b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.13d6ed59.css",
-    "static/js/main.cc86230b.js"
+    "static/css/main.03fa1768.css",
+    "static/js/main.3c9bba10.js"
   ]
 }
