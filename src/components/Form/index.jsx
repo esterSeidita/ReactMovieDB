@@ -20,14 +20,12 @@ export default function Form({
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // setShowModal("visible");
 
     if (method === "POST"){
       setAlertData({content:"Film aggiunto con successo", response:"CREATE", display:true})
 
       NewData(inputs).then(() => {
         setTimeout(() => {
-          // setShowModal("not-visible");
           navigate("/");
         }, 1000);
         setTimeout(()=>{  

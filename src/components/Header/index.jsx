@@ -1,22 +1,22 @@
-import  "./style.scss";
+import "./style.scss";
 import Logo from "../../img/logo.png";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
     <header>
-      <img
-        src={Logo}
-        alt="Movies Collection"
-      />
+      <Link to="/">
+        <img src={Logo} alt="Movies Collection" />
+      </Link>
+
       <nav>
         <ul>
-          <li>
+          {/* <li>
             <Link to="/">Home</Link>
-          </li>
+          </li> */}
           <li>
             <Link to="/AddMovie">Add Movie</Link>
-          </li>          
+          </li>
         </ul>
       </nav>
     </header>
